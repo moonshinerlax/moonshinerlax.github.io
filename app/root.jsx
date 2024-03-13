@@ -120,7 +120,7 @@ export default function App() {
         <ThemeProvider theme={theme} toggleTheme={toggleTheme}>
           <Progress />
           <VisuallyHidden showOnFocus as="a" className={styles.skip} href="#main-content">
-            Skip to main content
+            Skip to main content.
           </VisuallyHidden>
           <Navbar />
           <main
