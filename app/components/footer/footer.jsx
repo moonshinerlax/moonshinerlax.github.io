@@ -11,7 +11,7 @@ export const Footer = ({ className }) => (
         {`© ${new Date().getFullYear()} ${config.name}.`}
       </span>
         <span>Modified by yours truly. </span> 
-      <Link secondary className={styles.link} href="https://github.com/HamishMW/portfolio" target="_self">
+      <Link secondary className={styles.link} href="https://github.com/moonshinerlax/Aiven-Portfolio" target="_self">
         Original Code by HammishMW
       </Link>
     </Text>
