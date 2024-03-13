@@ -9,10 +9,10 @@ export const navLinks = [
     label: 'Details',
     pathname: '/#details',
   },
-  {
-    label: 'Articles',
-    pathname: '/articles',
-  },
+  // {
+  //   label: 'Articles',
+  //   pathname: '/articles',
+  // },
   {
     label: 'Contact',
     pathname: '/contact',
@@ -25,10 +25,15 @@ export const socialLinks = [
     url: `https://twitter.com/${config.twitter}`,
     icon: 'twitter',
   },
+  // {
+  //   label: 'Figma',
+  //   url: `https://www.figma.com/${config.figma}`,
+  //   icon: 'figma',
+  // },
   {
-    label: 'Figma',
-    url: `https://www.figma.com/${config.figma}`,
-    icon: 'figma',
+    label: 'LinkedIn',
+    url: `https://www.linkedin.com/${config.linkedin}`,
+    icon: 'linkedin',
   },
   {
     label: 'Github',

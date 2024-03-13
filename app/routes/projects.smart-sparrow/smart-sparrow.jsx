@@ -217,7 +217,7 @@ export const SmartSparrow = () => {
                 width={1280}
                 height={800}
                 placeholder={videoSprMotionPlaceholder}
-                alt="A learning designer building and deploying an interactive lesson on volcanism using the app."
+                alt=""
                 sizes={`(max-width: ${media.mobile}px) 100vw, 50vw`}
               />
             </ProjectSectionColumns>

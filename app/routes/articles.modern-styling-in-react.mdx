@@ -24,7 +24,7 @@ If you're already familiar with the problem, [skip to the solution](#theres-a-be
 Using vanilla CSS, or pre-processed CSS by means of LESS or SCSS, the traditional way of passing a _value_ to your styles on was to just use inline styles. So if we have a button component that allows a color, it would look something like this:
 
 ```jsx
-function Button({ color, children }) {
+function Button({ color, props }) {
   return (
     <button className="button" style={{ backgroundColor: color }}>
       {children}

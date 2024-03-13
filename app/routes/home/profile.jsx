@@ -23,8 +23,9 @@ const ProfileText = ({ visible, titleId }) => (
     <Text className={styles.description} data-visible={visible} size="l" as="p">
       I’m Marco Ivan, currently I live in Mexico working as Data Analyst SO at{' '}
       <Link href="https://www.agileone.com">AgileOne</Link>. I am a Full Stack Developer with principal knowledge in Javascript and Typescript,
-      I also work with databases SQL and NoSql. If you’re interested in the tools and software I
-      use check out my <Link href="/uses">uses page</Link>.
+      I also work with databases SQL and NoSql. 
+      {/* If you’re interested in the tools and software I
+      use check out my <Link href="/uses">uses page</Link>. */}
     </Text>
     <Text className={styles.description} data-visible={visible} size="l" as="p">
       In my spare time I like to practice coding and programming languages, spend time with my family and pplay video games. 

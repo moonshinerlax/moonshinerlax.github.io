@@ -15,14 +15,15 @@ import { cssProps, msToNum, numToMs } from '~/utils/style';
 import { baseMeta } from '~/utils/meta';
 import { Form, useActionData, useNavigation } from '@remix-run/react';
 import { json } from '@remix-run/cloudflare';
-import { SESClient, SendEmailCommand } from '@aws-sdk/client-ses';
 import styles from './contact.module.css';
+import emailjs from '@emailjs/browser';
+import { useState } from 'react';
 
 export const meta = () => {
   return baseMeta({
     title: 'Contact',
     description:
-      'Send me a message if you’re interested in discussing a project or if you just want to say hi',
+      'Send me a message if you’re interested in hiring me or just to say Hi!',
   });
 };
 
@@ -30,23 +31,77 @@ const MAX_EMAIL_LENGTH = 512;
 const MAX_MESSAGE_LENGTH = 4096;
 const EMAIL_PATTERN = /(.+)@(.+){2,}\.(.+){2,}/;
 
-export async function action({ context, request }) {
-  const ses = new SESClient({
-    region: 'us-east-1',
-    credentials: {
-      accessKeyId: context.cloudflare.env.AWS_ACCESS_KEY_ID,
-      secretAccessKey: context.cloudflare.env.AWS_SECRET_ACCESS_KEY,
-    },
-  });
+// // export async function action({request}) {
+//   const handleSubmit = async (event) => {
+//     event.preventDefault();
+//   const formData = new FormData(event.target);
+//   const isBot = String(formData.get('name'));
+//   const email = String(formData.get('from_name'));
+//   const message = String(formData.get('message'));
+//   const errors = {};
+//   // Return without sending if a bot trips the honeypot
+//   // if (isBot) return json({ success: true });
 
-  const formData = await request.formData();
+//   // Handle input validation on the server
+//   if (!email || !EMAIL_PATTERN.test(email)) {
+//     errors.email = 'Please enter a valid email address.';
+//   }
+
+//   if (!message) {
+//     errors.message = 'Please enter a message.';
+//   }
+
+//   if (email.length > MAX_EMAIL_LENGTH) {
+//     errors.email = `Email address must be shorter than ${MAX_EMAIL_LENGTH} characters.`;
+//   }
+
+//   if (message.length > MAX_MESSAGE_LENGTH) {
+//     errors.message = `Message must be shorter than ${MAX_MESSAGE_LENGTH} characters.`;
+//   }
+
+//   if (Object.keys(errors).length > 0) {
+    
+    
+//     return json({ errors });
+//   }
+//   console.log('formData:', formData);
+//   try{
+//   emailjs.sendForm('service_8qbjcr6', 'template_4iczjis', event.target, 
+//   'dCbZwuWwVKOMhWNNY')
+//   .then((result) => {
+//       console.log(result.text);
+//       console.log("message sent!")
+//   }, (error) => {
+//       console.log(error);
+//       console.log("error sending message, try again!")
+//   });
+  
+//   return json({ success: true });
+
+// } catch (error) {
+//   console.error('Error processing form submission:', error);
+//   return json({ error: 'Internal server error' }, { status: 500 });
+// }};
+
+export const Contact = () => {
+  const errorRef = useRef();
+  const email = useFormInput('');
+  const message = useFormInput('');
+  const initDelay = tokens.base.durationS;
+  // const actionData = useActionData();
+  const [actionData, setActionData] = useState({});
+  const { state } = useNavigation();
+  const sending = state === 'submitting';
+
+  const handleSubmit = async (event) => {
+    event.preventDefault();
+  const formData = new FormData(event.target);
   const isBot = String(formData.get('name'));
-  const email = String(formData.get('email'));
+  const email = String(formData.get('from_name'));
   const message = String(formData.get('message'));
   const errors = {};
-
   // Return without sending if a bot trips the honeypot
-  if (isBot) return json({ success: true });
+  if (isBot) setActionData({'success': true});
 
   // Handle input validation on the server
   if (!email || !EMAIL_PATTERN.test(email)) {
@@ -66,50 +121,37 @@ export async function action({ context, request }) {
   }
 
   if (Object.keys(errors).length > 0) {
-    return json({ errors });
+    
+    
+    setActionData(errors);
   }
+  try{
+  emailjs.sendForm('service_8qbjcr6', 'template_4iczjis', event.target, 
+  'dCbZwuWwVKOMhWNNY')
+  .then((result) => {
+      console.log(result.text);
+      console.log("message sent!");
+      setActionData({'success': true});
+  }, (error) => {
+      console.log(error);
+      console.log("error sending message, try again!");
+  });
+} catch (error) {
+  console.error('Error processing form submission:', error);
+  return json({ error: 'Internal server error' }, { status: 500 });
+}};
 
-  // Send email via Amazon SES
-  await ses.send(
-    new SendEmailCommand({
-      Destination: {
-        ToAddresses: [context.cloudflare.env.EMAIL],
-      },
-      Message: {
-        Body: {
-          Text: {
-            Data: `From: ${email}\n\n${message}`,
-          },
-        },
-        Subject: {
-          Data: `Portfolio message from ${email}`,
-        },
-      },
-      Source: `Portfolio <${context.cloudflare.env.FROM_EMAIL}>`,
-      ReplyToAddresses: [email],
-    })
-  );
-
-  return json({ success: true });
-}
-
-export const Contact = () => {
-  const errorRef = useRef();
-  const email = useFormInput('');
-  const message = useFormInput('');
-  const initDelay = tokens.base.durationS;
-  const actionData = useActionData();
-  const { state } = useNavigation();
-  const sending = state === 'submitting';
 
   return (
     <Section className={styles.contact}>
       <Transition unmount in={!actionData?.success} timeout={1600}>
         {({ status, nodeRef }) => (
           <Form
+            id='contact_form'
             unstable_viewTransition
             className={styles.form}
             method="post"
+            onSubmit={handleSubmit}
             ref={nodeRef}
           >
             <Heading
@@ -141,7 +183,7 @@ export const Contact = () => {
               autoComplete="email"
               label="Your email"
               type="email"
-              name="email"
+              name="from_name"
               maxLength={MAX_EMAIL_LENGTH}
               {...email}
             />
@@ -215,7 +257,7 @@ export const Contact = () => {
               data-status={status}
               style={getDelay(tokens.base.durationXS)}
             >
-              I’ll get back to you within a couple days, sit tight
+              I’ll get back to you ASAP
             </Text>
             <Button
               secondary
