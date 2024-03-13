@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import sliceAnnotationLarge from '~/assets/slice-annotation-large.png';
 import sliceAnnotationPlaceholder from '~/assets/slice-annotation-placeholder.png';
 import sliceAnnotation from '~/assets/slice-annotation.png';
