@@ -169,8 +169,8 @@ export function Articles() {
       <Section className={styles.content}>
         {!isSingleColumn && (
           <div className={styles.grid}>
-            {postList}
             {featuredPost}
+            {postList}
           </div>
         )}
         {isSingleColumn && (
