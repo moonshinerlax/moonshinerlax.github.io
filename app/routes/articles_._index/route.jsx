@@ -1,16 +1,21 @@
 import { baseMeta } from '~/utils/meta';
 import { getPosts } from './posts.server';
 import { json } from '@remix-run/cloudflare';
+import { useLocation } from "@remix-run/react";
 
 export async function loader() {
   const allPosts = await getPosts();
   const featured = allPosts.filter(post => post.frontmatter.featured)[0];
   const posts = allPosts.filter(post => featured?.slug !== post.slug);
+  const location = useLocation;
+  console.log(location);
 
   return json({ posts, featured });
 }
 
 export function meta() {
+  const location = useLocation;
+  console.log(location);
   return baseMeta({
     title: 'Articles',
     description:
