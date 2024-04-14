@@ -16,12 +16,16 @@ import imageSprDesignSystemDark from '~/assets/spr-design-system-dark.png';
 import imageSprDesignSystemLightLarge from '~/assets/spr-design-system-light-large.png';
 import imageSprDesignSystemLightPlaceholder from '~/assets/spr-design-system-light-placeholder.png';
 import imageSprDesignSystemLight from '~/assets/spr-design-system-light.png';
-import imageSprLessonBuilderDarkLarge from '~/assets/spr-lesson-builder-dark-large.jpg';
-import imageSprLessonBuilderDarkPlaceholder from '~/assets/spr-lesson-builder-dark-placeholder.jpg';
-import imageSprLessonBuilderDark from '~/assets/spr-lesson-builder-dark.jpg';
-import imageSprLessonBuilderLightLarge from '~/assets/spr-lesson-builder-light-large.jpg';
-import imageSprLessonBuilderLightPlaceholder from '~/assets/spr-lesson-builder-light-placeholder.jpg';
-import imageSprLessonBuilderLight from '~/assets/spr-lesson-builder-light.jpg';
+
+import imageSprLessonBuilderDarkLarge from '~/assets/beautylanding/darkpc-1.png';
+import imageSprLessonBuilderDarkPlaceholder from '~/assets/beautylanding/darkpc-1.png';
+import imageSprLessonBuilderDark from '~/assets/beautylanding/darkpc-1.png';
+import imageSprLessonBuilderLightLarge from '~/assets/beautylanding/lightpc.png';
+import imageSprLessonBuilderLightPlaceholder from '~/assets/beautylanding/lightpc.png';
+import imageSprLessonBuilderLight from '~/assets/beautylanding/lightpc.png';
+
+import videoSprMotionLarge1 from '~/assets/beautylanding/darkvid.mp4';
+import videoSprMotion1 from '~/assets/beautylanding/darkvid.mp4';
 import videoSprMotionLarge from '~/assets/spr-motion-large.mp4';
 import videoSprMotionPlaceholder from '~/assets/spr-motion-placeholder.jpg';
 import videoSprMotion from '~/assets/spr-motion.mp4';
@@ -44,9 +48,9 @@ import { baseMeta } from '~/utils/meta';
 import { media } from '~/utils/style';
 import styles from './smart-sparrow.module.css';
 
-const title = 'Administration Portal';
+const title = 'Lading Page & Administration Portal';
 const description =
-  'I created a web portal for a small business, in which they were able to create clients and employee users.';
+  'I created a lading page with a CRM web portal for a small business, in which they were able to create clients and employee users.';
 const roles = [
   'Creator',
   'UX and UI Design',
@@ -200,6 +204,25 @@ export const SmartSparrow = () => {
             }
           >
             <ProjectSectionColumns width="full">
+            <ProjectSectionContent width="full">
+                <ProjectTextRow width="s">
+                  <ProjectSectionHeading>Responsive and Modern Design</ProjectSectionHeading>
+                  <ProjectSectionText>
+                    This landing page is simple and straigh to the point. Responsive to all screen sizes and with just the necessary options to interact with the
+                    business to make WhatsApp contact, and see the business location on Google Maps.
+                  </ProjectSectionText>
+                </ProjectTextRow>
+              </ProjectSectionContent>
+              <Image
+                raised
+                className={styles.video}
+                srcSet={`${videoSprMotion1} 1280w, ${videoSprMotionLarge1} 2560w`}
+                width={1280}
+                height={800}
+                placeholder={videoSprMotionPlaceholder}
+                alt=""
+                sizes={`(max-width: ${media.mobile}px) 100vw, 50vw`}
+              />
               <ProjectSectionContent width="full">
                 <ProjectTextRow width="s">
                   <ProjectSectionHeading>Interactive design</ProjectSectionHeading>

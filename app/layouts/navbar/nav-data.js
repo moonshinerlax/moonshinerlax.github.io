@@ -2,20 +2,24 @@ import config from '~/config.json';
 
 export const navLinks = [
   {
+    label: 'New Game Portfolio!',
+    pathname: 'https://gameportfoliomoonshiner.pages.dev/',
+    important:true,
+  },
+  {
     label: 'Projects',
     pathname: '/#project-1',
+    important:false,
   },
   {
     label: 'Details',
     pathname: '/#details',
+    important:false,
   },
-  // {
-  //   label: 'Articles',
-  //   pathname: '/articles',
-  // },
   {
     label: 'Contact',
     pathname: '/contact',
+    important:false,
   },
 ];
 

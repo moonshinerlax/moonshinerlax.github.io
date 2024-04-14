@@ -1,15 +1,15 @@
-import gamestackTexture2Large from '~/assets/gamestack-list-large.jpg';
-import gamestackTexture2Placeholder from '~/assets/gamestack-list-placeholder.jpg';
-import gamestackTexture2 from '~/assets/gamestack-list.jpg';
+import gamestackTexture2Large from '~/assets/gamevid.gif';
+import gamestackTexture2Placeholder from '~/assets/gamevid.gif';
+import gamestackTexture2 from '~/assets/gamevid.gif';
 import gamestackTextureLarge from '~/assets/gamestack-login-large.jpg';
 import gamestackTexturePlaceholder from '~/assets/gamestack-login-placeholder.jpg';
 import gamestackTexture from '~/assets/gamestack-login.jpg';
-import sliceTextureLarge from '~/assets/slice-app-large.jpg';
+import sliceTextureLarge from '~/assets/gameimg-large.png';
 import sliceTexturePlaceholder from '~/assets/slice-app-placeholder.jpg';
-import sliceTexture from '~/assets/slice-app.jpg';
-import sprTextureLarge from '~/assets/spr-lesson-builder-dark-large.jpg';
-import sprTexturePlaceholder from '~/assets/spr-lesson-builder-dark-placeholder.jpg';
-import sprTexture from '~/assets/spr-lesson-builder-dark.jpg';
+import sliceTexture from '~/assets/gameimg-large.png';
+import sprTextureLarge from '~/assets/beautylanding/darkpc-1.png';
+import sprTexturePlaceholder from '~/assets/beautylanding/darkpc-1.png';
+import sprTexture from '~/assets/beautylanding/darkpc-1.png';
 import { Footer } from '~/components/footer';
 import { baseMeta } from '~/utils/meta';
 import { Intro } from './intro';
@@ -98,13 +98,39 @@ export const Home = () => {
         sectionRef={intro}
         scrollIndicatorHidden={scrollIndicatorHidden}
       />
-      <ProjectSummary
+        <ProjectSummary
         id="project-1"
-        sectionRef={projectOne}
-        visible={visibleSections.includes(projectOne.current)}
-        index={1}
-        title="Administration Portal"
-        description="Designing a platform to help small business administrate sales, clients and invoices"
+          alternate
+          sectionRef={projectOne}
+          visible={visibleSections.includes(projectOne.current)}
+          index={1}
+          title="Portfolio Game Mode"
+          description="This is my Portfolio in a 2D Game Mode"
+          buttonText="View more Details"
+          buttonLink="/projects/slice"
+          model={{
+            type: 'phone',
+            alt: 'GameScreenShot',
+            textures: [
+              {
+                srcSet: `${gamestackTexture2} 375w, ${gamestackTexture2Large} 750w`,
+                placeholder: gamestackTexture2Placeholder,
+              },
+              {
+                srcSet: `${sliceTexture} 800w, ${sliceTextureLarge} 1920w`,
+                placeholder: sliceTexturePlaceholder,
+              },
+            ],
+          }}
+        />
+      <ProjectSummary
+        id="project-2"
+        
+        sectionRef={projectTwo}
+        visible={visibleSections.includes(projectTwo.current)}
+        index={2}
+        title="Beauty Salon Page with CRM"
+        description="Designing a platform to help small business administrate sales, clients and invoices and their own landing page"
         buttonText="View project"
         buttonLink="/projects/smart-sparrow"
         model={{
@@ -119,11 +145,11 @@ export const Home = () => {
         }}
       />
       <ProjectSummary
-        id="project-2"
-        alternate
-        sectionRef={projectTwo}
-        visible={visibleSections.includes(projectTwo.current)}
-        index={2}
+        id="project-3"
+        
+        sectionRef={projectThree}
+        visible={visibleSections.includes(projectThree.current)}
+        index={3}
         title="Electronics E-Commerce"
         description="Online Store for Electronics specilize in Apple"
         buttonText="View website"
@@ -135,30 +161,6 @@ export const Home = () => {
             {
               srcSet: `${gamestackTexture} 375w, ${gamestackTextureLarge} 750w`,
               placeholder: gamestackTexturePlaceholder,
-            },
-            {
-              srcSet: `${gamestackTexture2} 375w, ${gamestackTexture2Large} 750w`,
-              placeholder: gamestackTexture2Placeholder,
-            },
-          ],
-        }}
-      />
-      <ProjectSummary
-        id="project-3"
-        sectionRef={projectThree}
-        visible={visibleSections.includes(projectThree.current)}
-        index={3}
-        title="Rick and Morty Character App"
-        description="Website to see all character from Rick and Morty Serie"
-        buttonText="View project"
-        buttonLink="/projects/slice"
-        model={{
-          type: 'laptop',
-          alt: 'Home Page',
-          textures: [
-            {
-              srcSet: `${sliceTexture} 800w, ${sliceTextureLarge} 1920w`,
-              placeholder: sliceTexturePlaceholder,
             },
           ],
         }}

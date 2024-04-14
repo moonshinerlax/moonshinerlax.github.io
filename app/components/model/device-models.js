@@ -5,7 +5,7 @@ export const ModelAnimationType = {
   SpringUp: 'spring-up',
   LaptopOpen: 'laptop-open',
 };
-
+ 
 export const deviceModels = {
   phone: {
     url: iphone11,

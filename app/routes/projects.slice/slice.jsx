@@ -2,26 +2,26 @@
 import sliceAnnotationLarge from '~/assets/slice-annotation-large.png';
 import sliceAnnotationPlaceholder from '~/assets/slice-annotation-placeholder.png';
 import sliceAnnotation from '~/assets/slice-annotation.png';
-import sliceAppLarge from '~/assets/slice-app-large.jpg';
-import sliceAppPlaceholder from '~/assets/slice-app-placeholder.jpg';
-import sliceApp from '~/assets/slice-app.jpg';
-import sliceBackgroundBarLarge from '~/assets/slice-background-bar-large.jpg';
-import sliceBackgroundBarPlaceholder from '~/assets/slice-background-bar-placeholder.jpg';
-import sliceBackgroundBar from '~/assets/slice-background-bar.jpg';
-import sliceBackgroundLarge from '~/assets/slice-background-large.jpg';
-import sliceBackgroundPlaceholder from '~/assets/slice-background-placeholder.jpg';
-import sliceBackground from '~/assets/slice-background.jpg';
+import sliceAppLarge from '~/assets/Gameinterface.png';
+import sliceAppPlaceholder from '~/assets/Gameinterface.png';
+import sliceApp from '~/assets/Gameinterface.png';
+import sliceBackgroundBarLarge from '~/assets/gametextbox.png';
+import sliceBackgroundBarPlaceholder from '~/assets/gametextbox.png';
+import sliceBackgroundBar from '~/assets/gametextbox.png';
+import sliceBackgroundLarge from '~/assets/JSVanilla.jpg';
+import sliceBackgroundPlaceholder from '~/assets/JSVanilla.jpg';
+import sliceBackground from '~/assets/JSVanilla.jpg';
 import sliceIrlPlaceholder from '~/assets/slice-irl-placeholder.jpg';
 import sliceIrl from '~/assets/slice-irl.jpg';
-import sliceSidebarAnnotationsLarge from '~/assets/slice-sidebar-annotations-large.png';
-import sliceSidebarAnnotationsPlaceholder from '~/assets/slice-sidebar-annotations-placeholder.png';
-import sliceSidebarAnnotations from '~/assets/slice-sidebar-annotations.png';
-import sliceSidebarLayersLarge from '~/assets/slice-sidebar-layers-large.png';
-import sliceSidebarLayersPlaceholder from '~/assets/slice-sidebar-layers-placeholder.png';
-import sliceSidebarLayers from '~/assets/slice-sidebar-layers.png';
-import sliceSlidesLarge from '~/assets/slice-slides-large.jpg';
-import sliceSlidesPlaceholder from '~/assets/slice-slides-placeholder.jpg';
-import sliceSlides from '~/assets/slice-slides.jpg';
+import sliceSidebarAnnotationsLarge from '~/assets/gamevid.gif';
+import sliceSidebarAnnotationsPlaceholder from '~/assets/gamevid.gif';
+import sliceSidebarAnnotations from '~/assets/gamevid.gif';
+import sliceSidebarLayersLarge from '~/assets/gameimg.png';
+import sliceSidebarLayersPlaceholder from '~/assets/gameimg.png';
+import sliceSidebarLayers from '~/assets/gameimg.png';
+import sliceSlidesLarge from '~/assets/Gametools.png';
+import sliceSlidesPlaceholder from '~/assets/Gametools.png';
+import sliceSlides from '~/assets/Gametools.png';
 import { Footer } from '~/components/footer';
 import { Image } from '~/components/image';
 import {
@@ -41,10 +41,10 @@ import { media } from '~/utils/style';
 import { baseMeta } from '~/utils/meta';
 import styles from './slice.module.css';
 
-const title = 'Rick and Morty Characters App';
+const title = '2D Game Portfolio';
 const description =
-  'This project was a personal project working with the Rick and Morty API';
-const roles = ['API Fetch', 'React and Vite', 'Backend', 'Redux', 'PostgreSQL'];
+  'I made this 2D game like portfolio to showcase my social media links and developer skills';
+const roles = ['Javascript', 'Vanilla', 'Vite', 'Kaboom', 'CSS', "HTML"];
 
 export const meta = () => {
   return baseMeta({ title, description, prefix: 'Projects' });
@@ -64,27 +64,28 @@ export const Slice = () => {
         />
         <ProjectHeader
           title={title}
-          description={description}
+          description={ description }
+          url="https://gameportfoliomoonshiner.pages.dev/"
           roles={roles}
         />
-        <ProjectSection padding="top">
+        {/* <ProjectSection padding="top">
           <ProjectSectionContent>
             <ProjectImage
               srcSet={`${sliceApp} 800w, ${sliceAppLarge} 1920w`}
               width={800}
               height={500}
               placeholder={sliceAppPlaceholder}
-              alt="The Slice web application showing a selected user annotation."
+              alt="Game interface screen"
               sizes={`(max-width: ${media.mobile}px) 100vw, (max-width: ${media.tablet}px) 90vw, 80vw`}
             />
           </ProjectSectionContent>
-        </ProjectSection>
+        </ProjectSection> */}
         <ProjectSection>
           <ProjectSectionColumns centered className={styles.columns}>
             <div className={styles.imagesText}>
-              <ProjectSectionHeading>Save favorite cards</ProjectSectionHeading>
+              <ProjectSectionHeading>Game Basic 2D Interface</ProjectSectionHeading>
               <ProjectSectionText>
-                You can create your own profile and save your favorite cards and have your own About page.
+                This is a one scene game with multiple props. Each prop has its own value and context to get trigger whenever the player colapses to them.
               </ProjectSectionText>
             </div>
             <div className={styles.sidebarImages}>
@@ -109,17 +110,13 @@ export const Slice = () => {
             </div>
           </ProjectSectionColumns>
         </ProjectSection>
-        {/* <ProjectSection light>
+        <ProjectSection light>
           <ProjectSectionContent>
             <ProjectTextRow>
-              <ProjectSectionHeading>Improving the experience</ProjectSectionHeading>
+              <ProjectSectionHeading>Sofwares and Tools</ProjectSectionHeading>
               <ProjectSectionText>
-                A problem we heard about often form users was that it was difficult to
-                find images they had previously seen or worked on. To solve this we added
-                a new tab that lists all previously annotated slides. In addition, we
-                added the ability to favorite slides, so if users find an interesting
-                slide they want to annotate later, they can easily save it to their
-                account.
+                For this project I used Vite with Vanilla and Javascript. Kaboom was the library that made all this possible with its own functions specilize for game being develop on a web enviroment.
+                To create and modify the character and map design I used Tiled. This software is special to create maps and characters with pre-made sprites.
               </ProjectSectionText>
             </ProjectTextRow>
             <Image
@@ -127,7 +124,7 @@ export const Slice = () => {
               width={800}
               height={500}
               placeholder={sliceSlidesPlaceholder}
-              alt="The new My Slides tab in slice, showing annotated and favorited slides."
+              alt="Screenshot from Tiled Software"
               sizes={`(max-width: ${media.mobile}px) 500px, (max-width: ${media.tablet}px) 800px, 1000px`}
             />
           </ProjectSectionContent>
@@ -146,7 +143,7 @@ export const Slice = () => {
                   sizes={`(max-width: ${media.mobile}px) 312px, (max-width: ${media.tablet}px) 408px, 514px`}
                 />
               </div>
-              <div className={styles.gridForeground}>
+              {/* <div className={styles.gridForeground}>
                 <Image
                   srcSet={`${sliceAnnotation} 440w, ${sliceAnnotationLarge} 880w`}
                   width={440}
@@ -155,21 +152,18 @@ export const Slice = () => {
                   alt="An annotation preview popover with statistics for shape perimeter and area."
                   sizes={`(max-width: ${media.mobile}px) 584px, (max-width: ${media.tablet}px) 747px, 556px`}
                 />
-              </div>
+              </div> */}
             </div>
             <div className={styles.gridText}>
               <ProjectSectionHeading>Meaningful details</ProjectSectionHeading>
               <ProjectSectionText>
-                Marking and annotating areas on high resolution biomedical images is the
-                core experience of the app, and it was easy to get lost or lose sense of
-                scale when zooming in on details. Adding measurements for the perimeter
-                and area of an annotation both helped to communicate the overall scale of
-                the image and how large the annotated feature is in comparison.
+                Using Tiled marking boundaries and naming them. When you take these steps and export the map as JSON file into your project you are able to import these as objects.
+                I did this in order to identify the props boundaries and trigger a textbox for instructions.
               </ProjectSectionText>
             </div>
           </ProjectSectionContent>
         </ProjectSection>
-        <ProjectSection>
+        {/* <ProjectSection>
           <ProjectSectionContent>
             <ProjectTextRow>
               <ProjectSectionHeading>Project outcomes</ProjectSectionHeading>

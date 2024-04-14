@@ -17,7 +17,7 @@ import styles from './project-summary.module.css';
 const Model = lazy(() =>
   import('~/components/model').then(module => ({ default: module.Model }))
 );
-
+ 
 export function ProjectSummary({
   id,
   visible: sectionVisible,

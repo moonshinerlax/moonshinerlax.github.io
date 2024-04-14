@@ -434,7 +434,7 @@ const Device = ({
       }
 
       // Simple slide up animation
-      if (model.animation === ModelAnimationType.SpringUp) {
+      if (model.animation  === ModelAnimationType.SpringUp) {
         playAnimation = () => {
           const startPosition = new Vector3(
             targetPosition.x,
