@@ -8,10 +8,11 @@ import { formatTimecode, readingTime } from '~/utils/timecode';
 
 export async function loader({ request }) {
   const slug = request.url.split('/').at(-1);
-  const module = await import(`../articles.${slug}.mdx`);
-  const text = await import(`../articles.${slug}.mdx?raw`);
+  const relink = slug.split('?').at(0);
+  const module = await import(`../articles.${relink}.mdx`);
+  const text = await import(`../articles.${relink}.mdx?raw`);
   const readTime = readingTime(text.default);
-  const ogImage = `${config.url}/static/${slug}-og.jpg`;
+  const ogImage = `${config.url}/static/${relink}-og.jpg`;
 
   return json({
     ogImage,

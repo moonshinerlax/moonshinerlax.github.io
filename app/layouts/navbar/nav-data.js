@@ -17,6 +17,10 @@ export const navLinks = [
     important:false,
   },
   {
+    label: 'Articles',
+    pathname: '/articles',
+  },
+  {
     label: 'Contact',
     pathname: '/contact',
     important:false,
