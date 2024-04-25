@@ -1,0 +1,28 @@
+.buttonContainer{
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.postContainer{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  width: 100%;
+}
+.mediaContainer{
+  display: block;
+  width: 100px;
+}
+.title {
+  z-index: 99;
+}
+  
+.buttonwhats::after{
+  background: linear-gradient(115deg, rgba(37,211,102,1) 0%, rgba(57,166,98,1) 100%);
+}
+.buttonface::after{
+  background: linear-gradient(115deg, rgba(24,119,242,1) 0%, rgba(80,147,235,1) 100%);
+}
+.buttoninsta::after{
+  background: linear-gradient(115deg, #f9ce34, #ee2a7b, #6228d7);
+}

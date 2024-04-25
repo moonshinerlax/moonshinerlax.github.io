@@ -6,6 +6,7 @@ import {
   ScrollRestoration,
   useFetcher,
   useLoaderData,
+  useLocation,
   useNavigation,
   useRouteError,
 } from '@remix-run/react';
@@ -81,6 +82,8 @@ export default function App() {
   let { canonicalUrl, theme } = useLoaderData();
   const fetcher = useFetcher();
   const { state } = useNavigation();
+  const location = useLocation();
+  const businessPage = location.pathname.includes('/businesscards/');
 
   if (fetcher.formData?.has('theme')) {
     theme = fetcher.formData.get('theme');
@@ -122,7 +125,7 @@ export default function App() {
           <VisuallyHidden showOnFocus as="a" className={styles.skip} href="#main-content">
             Skip to main content.
           </VisuallyHidden>
-          <Navbar />
+          {businessPage ? '' : <Navbar />}
           <main
             id="main-content"
             className={styles.container}

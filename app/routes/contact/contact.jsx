@@ -31,58 +31,6 @@ const MAX_EMAIL_LENGTH = 512;
 const MAX_MESSAGE_LENGTH = 4096;
 const EMAIL_PATTERN = /(.+)@(.+){2,}\.(.+){2,}/;
 
-// // export async function action({request}) {
-//   const handleSubmit = async (event) => {
-//     event.preventDefault();
-//   const formData = new FormData(event.target);
-//   const isBot = String(formData.get('name'));
-//   const email = String(formData.get('from_name'));
-//   const message = String(formData.get('message'));
-//   const errors = {};
-//   // Return without sending if a bot trips the honeypot
-//   // if (isBot) return json({ success: true });
-
-//   // Handle input validation on the server
-//   if (!email || !EMAIL_PATTERN.test(email)) {
-//     errors.email = 'Please enter a valid email address.';
-//   }
-
-//   if (!message) {
-//     errors.message = 'Please enter a message.';
-//   }
-
-//   if (email.length > MAX_EMAIL_LENGTH) {
-//     errors.email = `Email address must be shorter than ${MAX_EMAIL_LENGTH} characters.`;
-//   }
-
-//   if (message.length > MAX_MESSAGE_LENGTH) {
-//     errors.message = `Message must be shorter than ${MAX_MESSAGE_LENGTH} characters.`;
-//   }
-
-//   if (Object.keys(errors).length > 0) {
-    
-    
-//     return json({ errors });
-//   }
-//   console.log('formData:', formData);
-//   try{
-//   emailjs.sendForm('service_8qbjcr6', 'template_4iczjis', event.target, 
-//   'dCbZwuWwVKOMhWNNY')
-//   .then((result) => {
-//       console.log(result.text);
-//       console.log("message sent!")
-//   }, (error) => {
-//       console.log(error);
-//       console.log("error sending message, try again!")
-//   });
-  
-//   return json({ success: true });
-
-// } catch (error) {
-//   console.error('Error processing form submission:', error);
-//   return json({ error: 'Internal server error' }, { status: 500 });
-// }};
-
 export const Contact = () => {
   const errorRef = useRef();
   const email = useFormInput('');

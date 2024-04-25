@@ -13,7 +13,6 @@ export async function loader({ request }) {
   const text = await import(`../articles.${relink}.mdx?raw`);
   const readTime = readingTime(text.default);
   const ogImage = `${config.url}/static/${relink}-og.jpg`;
-
   return json({
     ogImage,
     frontmatter: module.frontmatter,
@@ -28,7 +27,6 @@ export function meta({ data }) {
 
 export default function Articles() {
   const { frontmatter, timecode } = useLoaderData();
-
   return (
     <MDXProvider components={postMarkdown}>
       <Post {...frontmatter} timecode={timecode}>

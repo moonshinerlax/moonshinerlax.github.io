@@ -36,12 +36,12 @@ export const Post = ({ children, title, date, banner, timecode }) => {
   const placeholder = `${banner?.split('.')[0]}-placeholder.jpg`;
 
   return (
-    <article className={styles.post}>
+    <article className={ styles.post }>
       <Section>
         {banner && (
           <div className={styles.banner} ref={imageRef}>
             <div className={styles.bannerImage}>
-              <Image role="presentation" src={banner} placeholder={placeholder} alt="" />
+              <Image role="presentation" src={ banner } placeholder={ placeholder } alt="" />
             </div>
             <div className={styles.bannerImageBlur}>
               <Image
@@ -49,12 +49,13 @@ export const Post = ({ children, title, date, banner, timecode }) => {
                 src={placeholder}
                 placeholder={placeholder}
                 alt=""
-              />
+                />
             </div>
           </div>
         )}
         <header className={styles.header}>
           <div className={styles.headerText}>
+        Hola AQUI ESTOY!
             <Transition in timeout={msToNum(tokens.base.durationM)}>
               {({ visible, nodeRef }) => (
                 <div className={styles.date} ref={nodeRef}>

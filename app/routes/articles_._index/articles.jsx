@@ -63,7 +63,7 @@ function ArticlesPost({ slug, frontmatter, timecode, index }) {
         onMouseEnter={handleMouseEnter}
         onMouseLeave={handleMouseLeave}
       >
-        <div className={styles.postDetails}>
+        <div className={ styles.postDetails }>
           <div aria-hidden className={styles.postDate}>
             <Divider notchWidth="64px" notchHeight="8px" />
             {dateTime}
